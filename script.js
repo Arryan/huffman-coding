@@ -42,11 +42,17 @@ let populateTree = function(letters) {
 			else break;
 		}
 	}
+	//console.log(letters[0]);
 	return letters[0];
 }
 
-let generateKeys = function(tree) {
-	
+let generateKeys = function(tree, key) {
+	if(typeof(tree.letter) === "string")
+		console.log(tree.letter + " : " + key);
+	else {
+		generateKeys(tree.letter.left, key + "0");
+		generateKeys(tree.letter.right, key + "1");
+	}
 }
 
 function node(left,right) {
