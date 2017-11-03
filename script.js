@@ -1,13 +1,6 @@
 const input = document.getElementById("text-input");
 let keys = {};
 
-let begin = function() {
-    let letters = populateLetters();
-    let tree = populateTree(letters);
-    keys = {};
-    generateKeys(tree, "");
-};
-
 let populateLetters = function() {
     let letters = [];
     let str = input.value;
@@ -57,6 +50,7 @@ let generateKeys = function(tree, key) {
     if(typeof(tree.letter) === "string") {
             keys[tree.letter] = key
     }
+    //recursive spook
     else {
             generateKeys(tree.letter.left, key + "0");
             generateKeys(tree.letter.right, key + "1");
