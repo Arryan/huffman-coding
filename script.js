@@ -1,5 +1,6 @@
 const input = document.getElementById("text-input");
 let keys = {};
+let counts = [];
 
 let populateLetters = function() {
     let letters = [];
@@ -28,6 +29,7 @@ let populateLetters = function() {
 
 let populateTree = function(letters) {
     while(letters.length > 1) {
+            counts.push(letters.slice());
             let right = letters.pop();
             let left = letters.pop();
             let newNode = new node(left,right);
